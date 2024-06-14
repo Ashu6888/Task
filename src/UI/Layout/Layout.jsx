@@ -4,6 +4,7 @@ import classes from './Layout.module.css'
 import NavbarTop from "../../Components/Navbar/NavbarTop"
 import Sidebar from '../../Components/Sidebar/Sidebar'
 import DashboardNavbar from '../../Components/Dashboard_nav/DashboardNavbar'
+import Footer from '../../Components/Footer/Footer'
 
 
 
@@ -24,6 +25,7 @@ const Layout = (props) => {
         <div className={classes.right}>
             <DashboardNavbar onSideberBtn={setSidebar} />
             {props.children}
+            <Footer/>
         </div>
     </div>
   )
