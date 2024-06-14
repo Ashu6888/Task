@@ -1,0 +1,40 @@
+.cont1{
+    margin-right: 20px;
+}
+.color1{
+ background-color: rgba(217, 215, 244, 1)
+}
+.color2{
+ background-color: rgba(207, 250, 254, 1)
+}
+.color3{
+ background-color: rgba(220, 252, 231, 1)
+}
+.color4{
+ background-color:rgba(254, 243, 199, 1)
+}
+.btn_container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-block: 20px;
+    & button{
+        background-color: rgba(55, 65, 81, 1);
+        color: rgba(243, 244, 246, 1);
+        border: none;
+        border-radius: 5px;
+        width: 200px;
+        height: 45px;
+    }
+}
+@media screen and (max-width: 620px) {
+    .cont1{
+        margin-right: 0 !important;
+    }
+    .btn_container{
+        gap: 10px;
+    }
+    .mb1{
+        margin-top: 20px;
+    }
+}
