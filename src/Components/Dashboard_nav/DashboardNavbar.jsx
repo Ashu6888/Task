@@ -29,8 +29,8 @@ const DashboardNavbar = (props) => {
         />
       </div>
 
-      <button onClick={() => setTheme(!theme)}>
-        {theme ? "Light" : "Dark"}
+      <button onClick={() => setTheme(!theme)} className={classes.btns}>
+        {theme ? "Light Mode" : "Dark Mode"}
       </button>
 
       <div className={classes.nav_body}>

@@ -40,6 +40,12 @@
   background-color: #f0ffff;
 }
 
+.btns {
+  background: none;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
 .nav_div1 {
   position: absolute;
   width: 100%;
