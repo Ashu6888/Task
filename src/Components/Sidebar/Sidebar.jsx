@@ -1,117 +1,80 @@
-import React from 'react'
-import classes from './Sidebar.module.css'
-import { NavLink } from 'react-router-dom'
-import { RxCross2} from 'react-icons/rx'
-import logo2 from "../../Assets/logo2.png"
-import icon1 from "../../Assets/icon1.svg"
-import icon2 from "../../Assets/icon2.svg"
-import icon3 from "../../Assets/icon3.svg"
-import icon4 from "../../Assets/icon4.svg"
-import icon5 from "../../Assets/icon5.svg"
-import icon6 from "../../Assets/icon6.svg"
-import icon7 from "../../Assets/icon7.png"
-import icon8 from "../../Assets/icon8.png"
-import { LuCalendarDays } from 'react-icons/lu'
-import { FaChevronDown } from 'react-icons/fa'
+import { useContext } from "react";
+import classes from "./Sidebar.module.css";
+import { NavLink } from "react-router-dom";
+import { RxCross2 } from "react-icons/rx";
+import { IoIosCall } from "react-icons/io";
+import { FaExclamationCircle } from "react-icons/fa";
+import { CiCircleMore } from "react-icons/ci";
+import { FaHome } from "react-icons/fa";
+import logo2 from "../../Assets/logo2.png";
+import { LuCalendarDays } from "react-icons/lu";
+import { FaChevronDown } from "react-icons/fa";
+import ThemeContext from "../Dashboard_nav/ThemeContext";
 
 const Sidebar = (props) => {
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <div className={classes.sidebar} >
+    <div
+      className={`${classes.sidebar} ${theme ? classes.Black : classes.Light}`}
+    >
       <div className={classes.top}>
         <img src={logo2} className={classes.imgg} alt="DialysisGO" />
-        <button className={classes.side_bn} onClick={() => { props.onSidebarBtn(false) }}><RxCross2 style={{color:"white"}}/></button>
+        <button
+          className={classes.side_bn}
+          onClick={() => {
+            props.onSidebarBtn(false);
+          }}
+        >
+          <RxCross2 style={{ color: "white" }} />
+        </button>
       </div>
-      <div onClick={() => {props.onSidebarBtn(false)}} className={classes.middle}>
-        <p className={classes.para}>APPS</p>
-        <NavLink  className={classes.link} to={'/dashboard'}>
-       <div className={classes.inside_divv}>
-       <div>
-       <img src={icon1} alt="" />
-       <span>Project</span>
-       </div>
-       <FaChevronDown style={{fontSize:"15px"}} />
-      
-       </div>
-        </NavLink>
-        <NavLink className={`${classes.link} link1`}to={'/crm'}>
-        <div className={classes.inside_divv}>
-        <div>
-        <img src={icon2} alt="" />
-          <span >CRM</span>
+      <div
+        onClick={() => {
+          props.onSidebarBtn(false);
+        }}
+        className={classes.middle}
+      >
+        <NavLink className={classes.link} to={"/dashboard"}>
+          <div className={classes.inside_divv}>
+            <div>
+              <FaHome />
+              <span>Home</span>
+            </div>
+            <FaChevronDown style={{ fontSize: "15px" }} />
           </div>
-       <FaChevronDown style={{fontSize:"15px"}} />
-      
-       </div>
         </NavLink>
-        <NavLink className={classes.link} to={'/sales'}>
-        <div className={classes.inside_divv}>
-        <div>
-        <img src={icon3} alt="" />
-          <span >Sales</span>
+        <NavLink className={`${classes.link} link1`} to={"/about"}>
+          <div className={classes.inside_divv}>
+            <div>
+              <FaExclamationCircle />
+              <span>About</span>
+            </div>
+            <FaChevronDown style={{ fontSize: "15px" }} />
           </div>
-       <FaChevronDown style={{fontSize:"15px"}} />
-      
-       </div>
+        </NavLink>
+        <NavLink className={classes.link} to={"/contact"}>
+          <div className={classes.inside_divv}>
+            <div>
+              <IoIosCall />
+              <span>Contact</span>
+            </div>
+            <FaChevronDown style={{ fontSize: "15px" }} />
+          </div>
         </NavLink>
 
-        <NavLink className={classes.link} to={'/crypto'}>
-            <div className={classes.inside_divv}>
+        <NavLink className={classes.link} to={"/more"}>
+          <div className={classes.inside_divv}>
             <div>
-        <img src={icon4} alt="" />
-          <span >Crypto</span>
+              <CiCircleMore />
+              <span>More</span>
+            </div>
+            <FaChevronDown style={{ fontSize: "15px" }} />
           </div>
-       <FaChevronDown style={{fontSize:"15px"}}  />
-      
-       </div>
         </NavLink>
-        <NavLink className={classes.link} to={'/knowledge'}>
-            <div className={classes.inside_divv}>
-            <div>
-        <img src={icon5} alt="" />
-          <span >Knowledge Base</span>
-          </div>
-       <FaChevronDown style={{fontSize:"15px"}} />
-      
-       </div>
-        </NavLink>
-
-        <p className={classes.para}>PAGES</p>
-        <NavLink className={classes.link} to={'/account'}>
-            <div className={classes.inside_divv}>
-            <div>
-        <img src={icon6} alt="" />
-          <span >Account</span>
-          </div>
-       <FaChevronDown style={{fontSize:"15px"}} />
-      
-       </div>
-        </NavLink>
-        <NavLink className={classes.link} to={'/welcome'}>
-            <div className={classes.inside_divv}>
-            <div>
-        <img src={icon7} alt="welcome" />
-          <span >Welcome</span>
-          </div>
-       <FaChevronDown style={{fontSize:"15px"}} />
-      
-       </div>
-        </NavLink>
-        <NavLink className={classes.link} to={'/access'}>
-            <div className={classes.inside_divv}>
-            <div>
-        <img src={icon8} alt="" />
-          <span >Access Denied</span>
-          </div>
-       <FaChevronDown />
-      
-       </div>
-        </NavLink>
-
       </div>
-   
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

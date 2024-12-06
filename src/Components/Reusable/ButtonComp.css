@@ -1,0 +1,9 @@
+.active {
+  background-color: rgba(55, 65, 81, 1);
+  color: rgba(243, 244, 246, 1);
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  height: 45px;
+  cursor: pointer;
+}

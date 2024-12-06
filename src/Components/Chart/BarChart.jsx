@@ -1,72 +1,79 @@
-import React from 'react';
-import Chart from 'react-apexcharts';
-import classes from './Chart.module.css'
+import React from "react";
+import Chart from "react-apexcharts";
+import classes from "./Chart.module.css";
 
 const BarChart = () => {
   const options = {
     chart: {
-      type: 'bar',
-      height: 350
+      type: "bar",
+      height: 350,
     },
     plotOptions: {
       bar: {
         horizontal: false,
-        columnWidth: '55%',
-        endingShape: 'rounded'
-      }
+        columnWidth: "55%",
+        endingShape: "rounded",
+      },
     },
-    colors: ['rgba(79, 70, 229, 1)', 'rgba(16, 185, 129, 1)'],
+    colors: ["rgba(79, 70, 229, 1)", "rgba(16, 185, 129, 1)"],
     dataLabels: {
-      enabled: false
+      enabled: false,
     },
     stroke: {
       show: true,
       width: 2,
-      colors: ['transparent']
+      colors: ["transparent"],
     },
     xaxis: {
-      categories: ['21 Jan', '22 Jan', '23 Jan', '24 Jan', '25 Jan', '26 Jan', '27 Jan'],
+      categories: [
+        "21 Jan",
+        "22 Jan",
+        "23 Jan",
+        "24 Jan",
+        "25 Jan",
+        "26 Jan",
+        "27 Jan",
+      ],
       labels: {
         style: {
-          colors: 'rgba(107, 114, 128, 1)'
-        }
-      }
+          colors: "rgba(107, 114, 128, 1)",
+        },
+      },
     },
     yaxis: {
       title: {
-        text: "",
-      
+        text: " ",
       },
       labels: {
         style: {
-          colors: 'rgba(107, 114, 128, 1)' 
-        }
-      }
+          colors: "rgba(107, 114, 128, 1)",
+        },
+      },
     },
     fill: {
-      opacity: 1
+      opacity: 1,
     },
     tooltip: {
       y: {
         formatter: function (val) {
           return val;
-        }
-      }
+        },
+      },
     },
     legend: {
-      show: false // Hiding the legend (series text)
-    }
+      show: false, // Hiding the legend (series text)
+    },
   };
 
   const series = [
     {
-      name: 'Leads',
-      data: [30, 40, 50, 70, 80, 90, 100]
+      name: "Leads",
+      data: [30, 40, 50, 70, 80, 90, 100],
     },
     {
-      name: 'Proposals',
-      data: [20, 30, 40, 60, 70, 80, 90]
-    }
+      name: "Proposals",
+      data: [20, 30, 40, 60, 70, 80, 90],
+    },
   ];
 
   return (

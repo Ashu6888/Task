@@ -1,28 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-import Home from './Pages/Home';
-import {useLocation, Routes, Route } from "react-router-dom"
-import Layout from './UI/Layout/Layout';
-import Dashboard from './Pages/Dashboard/Dashboard';
+import React, { useState, Suspense } from "react";
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./UI/Layout/Layout";
+import ThemeContext from "./Components/Dashboard_nav/ThemeContext";
 
-function App() {
-  const location = useLocation();
-  const path = location?.pathname;
+// Lazy load the pages
+const Dashboard = React.lazy(() => import("./Pages/Dashboard/Dashboard"));
+const FormComponent = React.lazy(() =>
+  import("./Components/Form/FormComponent")
+);
+
+const App = () => {
+  const [theme, setTheme] = useState(true);
+
   return (
-   <div>
-      {path.includes("user-") || path === '/'  ? (
-        <Routes>
-          <Route path="/" element={<Home/>} />
-        </Routes>
-      ) : (
-    <Layout>
-       <Routes>
-          <Route path="/dashboard" element={<Dashboard/>} />
-        </Routes>
-    </Layout>
-  )}
-   </div>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <Layout>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/about" element={<FormComponent />} />
+          </Routes>
+        </Suspense>
+      </Layout>
+    </ThemeContext.Provider>
   );
-}
+};
 
 export default App;

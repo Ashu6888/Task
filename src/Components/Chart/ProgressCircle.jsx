@@ -1,57 +1,59 @@
-import React from 'react';
-import Chart from 'react-apexcharts';
-import styles from "./Chart.module.css"
+import React from "react";
+import Chart from "react-apexcharts";
+import styles from "./Chart.module.css";
 
 const ProgressCircle = () => {
   const options = {
     chart: {
-      type: 'radialBar',
+      type: "radialBar",
     },
     plotOptions: {
       radialBar: {
         hollow: {
-          size: '80%',
+          size: "80%",
         },
         track: {
           show: true,
-          background: '#f2f2f2',
-          strokeWidth: '80%', 
+          background: "#f2f2f2",
+          strokeWidth: "80%",
         },
         dataLabels: {
           name: {
-            fontSize: '22px',
-            color: '#fff',
+            fontSize: "22px",
+            color: "#fff",
             offsetY: -10,
           },
           value: {
-            fontSize: '16px',
-            color: '#fff',
+            fontSize: "16px",
+            color: "black",
             offsetY: 5,
           },
           total: {
             show: true,
-            label: 'Opened',
-            color: '#fff',
+            label: "Opened",
+            color: "black",
             formatter: function () {
-              return '73%';
+              return "73%";
             },
           },
         },
       },
     },
 
-    labels: ['Opened'],
+    labels: ["Opened"],
   };
 
   const series = [73];
 
   return (
     <div className={`${styles.bar_chart} py-3`}>
-        <h6 className={styles.head}>Email Sent</h6>
+      <h6 className={`${styles.head}`}>Email Sent</h6>
       <Chart options={options} series={series} type="radialBar" height={300} />
       <div className="text-center mt-2">
-        <p className='mb-0' style={{ color: 'rgba(156, 163, 175, 1)' }}>Performance</p>
-        <h5 style={{ color: '#fff' }}>Average</h5>
+        <p className="mb-0" style={{ color: "black" }}>
+          Performance
+        </p>
+        <h5 style={{ color: "black" }}>Average</h5>
       </div>
     </div>
   );

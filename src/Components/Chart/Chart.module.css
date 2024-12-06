@@ -1,12 +1,12 @@
-.bar_chart{
-    border: 1px solid rgba(55, 65, 81, 1);
-    border-radius: 5px;
-    padding: 10px 10px 0 10px;
+.bar_chart {
+  border: 1px solid rgba(55, 65, 81, 1);
+  border-radius: 5px;
+  padding: 10px 10px 0 10px;
 }
-.head{
-    font-size: 16px;
-    font-weight: 500;
-    font-family: "Inter", sans-serif;
-    color: rgba(243, 244, 246, 1);
-    margin-inline: 10px;
+.head {
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  color: black;
+  margin-inline: 10px;
 }
